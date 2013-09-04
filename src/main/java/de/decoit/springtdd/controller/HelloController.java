@@ -50,5 +50,21 @@ public class HelloController {
         map.put("name", helloCmd.getName());        
         
         return new ModelAndView("hello", map);
-    }    
+    }   
+    
+      @RequestMapping(value = "/login", method = RequestMethod.GET)
+    public String login(ModelMap model) {
+        return "login";
+    }
+ 
+    @RequestMapping(value = "/denied", method = RequestMethod.GET)
+    public String loginError(ModelMap model) {
+        model.addAttribute("error", "true");
+        return "denied";
+    }
+ 
+    @RequestMapping(value = "/logout", method = RequestMethod.GET)
+    public String logout(ModelMap model) {
+        return "logout";
+    }
 }
